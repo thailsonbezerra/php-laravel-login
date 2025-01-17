@@ -36,6 +36,11 @@ a {
     color: inherit;
 }
 
+.highlight-title {
+    color: var(--salmon-light-400-color);
+    font-weight: bold;
+}
+
 .btn-teal-dark,
 .btn-teal-dark:hover {
     background-color: var(--teal-dark-950-color);
@@ -47,6 +52,12 @@ a {
     border: 1px solid var(--teal-dark-950-color);
     color: var(--teal-dark-950-color);
     background: white;
+}
+
+.btn-salmon-light,
+.btn-salmon-light:hover {
+    background-color: var(--salmon-light-400-color);
+    color: var(--teal-dark-950-color);
 }
 
 @media (max-width: 600px) {
