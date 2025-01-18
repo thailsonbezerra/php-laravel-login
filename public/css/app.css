@@ -19,12 +19,17 @@ img {
     height: auto;
 }
 
-nav > img {
+header > img {
     height: 80%;
 }
 
-nav {
+header {
     border-bottom: 1px solid var(--teal-dark-950-color);
+    height: 80px;
+}
+
+.container {
+    height: calc(100vh - 80px);
 }
 
 ul {
@@ -61,7 +66,7 @@ a {
 }
 
 @media (max-width: 600px) {
-    nav > img {
+    header > img {
         height: 60%;
     }
 }

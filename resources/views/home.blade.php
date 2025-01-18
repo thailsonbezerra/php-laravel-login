@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container w-80 vh-100">
+    <div class="container w-80">
         <div class="content h-100 d-flex flex-column justify-content-center align-items-center text-center px-4">
             <h1 class="h2">
                 Que tal organizar seus <span class="highlight-title">projetos</span> de forma simples e eficiente?
