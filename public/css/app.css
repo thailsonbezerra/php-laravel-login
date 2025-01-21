@@ -6,9 +6,15 @@
 
 :root {
     --teal-dark-950-color: #020c10;
-    --salmon-light-400-color: #ffae87;
-    --salmon-light-200-color: #f8c5a9;
-    --salmon-light-600-color: #d39572;
+    --salmon-light-900-color: #996851;
+    --salmon-light-800-color: #b37a5f;
+    --salmon-light-700-color: #cc8b6c;
+    --salmon-light-600-color: #e69d7a;
+    --salmon-light-500-color: #ffb693;
+    --salmon-light-400-color: #ffbe9f;
+    --salmon-light-300-color: #ffc6ab;
+    --salmon-light-200-color: #ffceb7;
+    --salmon-light-100-color: #ffd7c3;
 }
 
 body {
@@ -44,7 +50,7 @@ a {
 }
 
 .highlight-title {
-    color: var(--salmon-light-400-color);
+    color: var(--salmon-light-500-color);
     font-weight: bold;
 }
 
@@ -53,24 +59,29 @@ a {
 }
 
 .bg-salmon-light {
-    background-color: var(--salmon-light-400-color);
+    background-color: var(--salmon-light-500-color);
 }
 
 .custom-form {
-    background: var(--salmon-light-400-color);
+    background: var(--salmon-light-100-color);
     border: 1px solid var(--salmon-light-600-color);
     border-radius: 4px;
 }
 
-.custom-input,
-.custom-input:focus {
-    background: var(--salmon-light-200-color);
+.custom-input{
+    background: var(--salmon-light-300-color);
     color: var(--teal-dark-950-color);
     border: 1px solid var(--salmon-light-600-color);
     border-radius: 4px;
 }
-.custom-input::placeholder {
+.custom-input:focus {
+    background: var(--salmon-light-400-color);
     color: var(--teal-dark-950-color);
+    outline: none;
+}
+
+.custom-input::placeholder {
+    color: rgb(50, 50, 50);
 }
 
 .btn-teal-dark,
