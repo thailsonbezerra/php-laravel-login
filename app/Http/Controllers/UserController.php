@@ -35,6 +35,7 @@ class UserController extends Controller
             'name.min' => 'Calma aí, seu nome só tem duas letras? Tente novamente com seu nome real e seu sobrenome',
             'email.required' => 'Hmm... Parece que você esqueceu de digitar seu e-mail.',
             'email.email' => 'Hmm... Não sei seu e-mail, mas com certeza não é esse, tente novamente.',
+            'email.unique' => 'Opa! Esse e-mail já está cadastrado.',
             'password.required' => 'Calma lá, você precisa escolher uma senha segura para continuarmos.',
             'password.min' => 'Sua senha é muito curta, tente novamente com uma senha mais segura.',   
         ];
@@ -47,9 +48,12 @@ class UserController extends Controller
 
         $user = $user->fill($validated);
         $user->password = Hash::make($validated['password']);
-        $user->save();
 
-        return 'Usuário cadastrado com sucesso!';
+        if ($user->save()) {
+            return back()->with('success', 'Usuário cadastrado com sucesso!');
+        }
+    
+        return back()->with('error', 'Ocorreu um problema ao cadastrar o usuário. Tente novamente.');
         
     }
 
