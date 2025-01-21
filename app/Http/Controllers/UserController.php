@@ -29,13 +29,21 @@ class UserController extends Controller
      */
     public function store(Request $request, User $user)
     {
-        dd(user)
+
+        $messages = [
+            'name.required' => 'Opa! Parece que você se esqueceu de digitar seu nome.',
+            'name.min' => 'Calma aí, seu nome só tem duas letras? Tente novamente com seu nome real e seu sobrenome',
+            'email.required' => 'Hmm... Parece que você esqueceu de digitar seu e-mail.',
+            'email.email' => 'Hmm... Não sei seu e-mail, mas com certeza não é esse, tente novamente.',
+            'password.required' => 'Calma lá, você precisa escolher uma senha segura para continuarmos.',
+            'password.min' => 'Sua senha é muito curta, tente novamente com uma senha mais segura.',   
+        ];
 
         $validated = $request->validate([
             'name' => 'required|min:2|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:8',
-        ]);
+        ], $messages);
 
         $user = $user->fill($validated);
         $user->password = Hash::make($validated['password']);

@@ -9,21 +9,21 @@
         <form method="POST" action="{{route('create-user')}}" class="p-4 col-12 col-lg-6 rounded custom-form">
           @csrf
           <div class="form-group">
-              <input type="name" class="form-control custom-input" id="name" placeholder="Nome">
+              <input type="name" class="form-control custom-input" id="name" name="name" placeholder="Nome" value="{{ old('name') }}">
               @error('name')
-                <p class="text-danger mt-2">{{ $message }}</p>
+                <p class="text-danger font-weight-bold mb-2">{{ $message }}</p>
               @enderror
             </div>
             <div class="form-group">
-              <input type="email" class="form-control custom-input" id="email" placeholder="Email">
+              <input type="email" class="form-control custom-input" id="email" name="email" placeholder="Email" value="{{ old('email') }}">
               @error('email')
-                <p class="text-danger mt-2">{{ $message }}</p>
+                <p class="text-danger font-weight-bold mb-2">{{ $message }}</p>
               @enderror
             </div>
             <div class="form-group">
-              <input type="password" class="form-control custom-input" id="password" placeholder="Senha">
+              <input type="password" class="form-control custom-input" id="password" name="password" placeholder="Senha">
               @error('password')
-                <p class="text-danger mt-2">{{ $message }}</p>
+                <p class="text-danger font-weight-bold mb-2">{{ $message }}</p>
               @enderror
             </div>
             <button type="submit" class="btn btn-teal-dark w-100">Criar nova conta</button>
