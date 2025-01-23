@@ -55,7 +55,7 @@ class UserController extends Controller
             return back()->with('success', 'Usuário cadastrado com sucesso!');
         }
     
-        return back()->with('error', 'Ocorreu um problema ao cadastrar o usuário. Tente novamente.');
+        return back()->withInput()->with('error', 'Ocorreu um problema ao cadastrar o usuário. Tente novamente.');
         
     }
 
