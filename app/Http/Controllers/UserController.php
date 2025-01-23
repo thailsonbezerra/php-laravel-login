@@ -46,6 +46,8 @@ class UserController extends Controller
             'password' => 'required|min:8',
         ], $messages);
 
+        $strongPassword = $user->validatePassword($validated['password']);
+
         $user = $user->fill($validated);
         $user->password = Hash::make($validated['password']);
 

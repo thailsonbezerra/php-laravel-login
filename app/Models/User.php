@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Validation\ValidationException;
 
 class User extends Authenticatable
 {
@@ -44,5 +45,21 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function validatePassword(string $password): string
+    {
+        $lowercase = preg_match('/[a-z]/', $password);
+        $uppercase = preg_match('/[A-Z]/', $password);
+        $number    = preg_match('/[0-9]/', $password);
+        $specialChars = preg_match('/[^\w]/', $password);
+
+        if (!$lowercase || !$uppercase || !$number || !$specialChars || strlen($password) < 8) {
+            throw ValidationException::withMessages([
+                'password' => 'Sua senha deve conter pelo menos 8 caracteres, incluindo letras maiúsculas, minúsculas, números e caracteres especiais.',
+            ]);
+        }
+
+        return $password;
     }
 }
